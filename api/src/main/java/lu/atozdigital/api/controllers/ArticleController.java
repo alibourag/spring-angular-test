@@ -1,7 +1,6 @@
 package lu.atozdigital.api.controllers;
 
 import lu.atozdigital.api.DTO.ArticleDto;
-import lu.atozdigital.api.entities.Article;
 import lu.atozdigital.api.services.ArticleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,11 +13,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/articles")
-public class ControllerArticles {
+@CrossOrigin("*")
+public class ArticleController {
 
     private ArticleService articleService;
 
-    public ControllerArticles(ArticleService articleService) {
+    public ArticleController(ArticleService articleService) {
         this.articleService = articleService;
     }
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
