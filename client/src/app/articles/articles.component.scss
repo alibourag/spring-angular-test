@@ -1,0 +1,69 @@
+.contentCart{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type:none ;
+    padding: 0;
+}
+li{
+    background-color: rgb(226, 226, 226);
+}
+li a {
+    height: 15rem;
+    width: 15rem;
+    border: 1px solid whitesmoke;
+    border-radius: 2px;
+    margin: .5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: red;
+    text-align: center;
+}
+li a:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+.name {
+    margin-left:2px;
+    margin-right: 2px;
+    padding: 2px;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+  }
+.content img{
+    object-fit: cover;
+    height: 12rem;
+    width:12rem;
+}
+.content{
+    position: relative;
+}
+.price{
+    font-size: 14 px;
+    color: green;
+    background-color: red;
+    width: 100px;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+  }
+  .btn{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    background-color: #ffff;
+    cursor: pointer;
+}

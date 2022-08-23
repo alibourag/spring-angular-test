@@ -1,0 +1,17 @@
+<div class="container text-center">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>REF</th>
+            <th>Date</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{order.reference}}</td>
+            <td> {{order.date}}</td>
+            <td><a href="#">Edit</a></td>
+        </tr>
+    </tbody>
+</table>

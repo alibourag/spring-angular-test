@@ -1,0 +1,23 @@
+<h1>
+    Create Article
+</h1>
+<form enctype="multipart/form-data"    method="post">
+<div class="content card w-75 ">
+    <div class="card-body">
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Article name" name="name" [(ngModel)]="article.name" />
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Price" name="price" [(ngModel)]="article.price"  >
+        <span class="input-group-text">.00 $</span>
+    </div>
+    <div class="input-group">
+        <input type="file" class="form-control"  aria-label="Upload" (change)="onFileChanged($event)" >
+    </div>
+    <div class="d-md-flex justify-content-md-end">
+    <button class="btn btn-outline-secondary  " type="button"  (click)="onSubmit()" routerLink="/articles/" >Create</button>
+    </div>
+</div>
+</div>
+</form>
