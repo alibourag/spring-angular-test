@@ -1,5 +1,6 @@
 package lu.atozdigital.api.services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lu.atozdigital.api.DTO.ArticleDto;
 import lu.atozdigital.api.Repositories.ArticleRepository;
 import lu.atozdigital.api.entities.Article;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class ArticleService implements IArticleService {
@@ -25,7 +28,19 @@ public class ArticleService implements IArticleService {
         article.setName(name);
         article.setPrice(price);
         articleRepository.save(article);
-        //System.out.println();
+    }
+
+    @Override
+    public ArticleDto getArticle(Long id) {
+        Optional<Article> article = articleRepository.findById(id);
+        if(article.isPresent()){
+            ArticleDto articleDto = new ArticleDto();
+            articleDto.name = article.get().getName();
+            articleDto.price = article.get().getPrice();
+            articleDto.picture = article.get().getPicture();
+            return articleDto;
+        }
+        return null;
     }
 }
 

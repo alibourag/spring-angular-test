@@ -8,4 +8,5 @@ import java.io.IOException;
 
 public interface IArticleService {
     public void saveArticle(String name, double price ,MultipartFile picture) throws IOException;
+    public ArticleDto getArticle(Long id);
 }
