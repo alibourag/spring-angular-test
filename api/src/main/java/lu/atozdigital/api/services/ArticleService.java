@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -41,6 +43,20 @@ public class ArticleService implements IArticleService {
             return articleDto;
         }
         return null;
+    }
+
+    @Override
+    public List<ArticleDto> getAllArticles() {
+        List<Article> articles = articleRepository.findAll();
+         List<ArticleDto> articleDtos = new ArrayList<>();
+        articles.forEach(article -> {
+            ArticleDto articleDto = new ArticleDto();
+            articleDto.picture = article.getPicture();
+            articleDto.name = article.getName();
+            articleDto.price = article.getPrice();
+            articleDtos.add(articleDto);
+        });
+        return articleDtos;
     }
 }
 

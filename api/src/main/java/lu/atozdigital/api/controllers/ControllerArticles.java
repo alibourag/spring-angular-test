@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/articles")
@@ -31,9 +32,12 @@ public class ControllerArticles {
     public ResponseEntity<?> getArticle(@PathVariable("id") Long id){
         ArticleDto articleDto = articleService.getArticle(id);
         if(articleDto==null){
-            System.out.println("ana hnaya");
             return new ResponseEntity<>("Article Not Found !!", HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(articleDto, HttpStatus.OK);
+    }
+    @GetMapping
+    public List<ArticleDto> getAllArticles(){
+        return articleService.getAllArticles();
     }
 }
